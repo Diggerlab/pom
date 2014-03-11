@@ -71,6 +71,7 @@ GEM
       railties (>= 3.2.6, < 5)
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    dotenv (0.9.0)
     erubis (2.7.0)
     execjs (2.0.2)
     formtastic (2.3.0.rc2)
@@ -187,6 +188,7 @@ DEPENDENCIES
   activeadmin!
   capistrano
   coffee-rails (~> 4.0.0)
+  dotenv
   jbuilder (~> 1.2)
   jquery-rails
   mysql2
