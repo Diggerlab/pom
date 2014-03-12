@@ -44,6 +44,9 @@ namespace:deploy do
 
   namespace:app do 
     after "deploy:restart", "deploy:restart_unicorn"
+    before "deploy:finalize_update" do 
+      run "cp #{shared_path}/config/database.yml #{release_path}/config/"
+    end
   end
 
 end
