@@ -1,6 +1,11 @@
 ActiveAdmin.register Iap do
   config.sort_order = "dim_date_id_desc"
   config.clear_action_items!
+  csv do
+    column :dim_date_id
+    column :product
+    column :count
+  end
   index do
     column :dim_date
     column :product

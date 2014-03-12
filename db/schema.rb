@@ -88,17 +88,22 @@ ActiveRecord::Schema.define(version: 20140311114926) do
   end
 
   create_table "fact_active_users", id: false, force: true do |t|
-    t.integer "dim_game_id",                         null: false
-    t.integer "dim_date_id",                         null: false
-    t.integer "today_users",             default: 0
-    t.integer "total_users",             default: 0
-    t.integer "today_logins",            default: 0
-    t.integer "one_days_retention",      default: 0
-    t.integer "three_days_retention",    default: 0
-    t.integer "seven_days_retention",    default: 0
-    t.integer "fourteen_days_retention", default: 0
-    t.integer "thirty_days_retention",   default: 0
-    t.integer "fb_connected_users",      default: 0
+    t.integer "dim_game_id",                                null: false
+    t.integer "dim_date_id",                                null: false
+    t.integer "today_users",                  default: 0
+    t.integer "total_users",                  default: 0
+    t.integer "today_logins",                 default: 0
+    t.integer "one_days_retention",           default: 0
+    t.integer "three_days_retention",         default: 0
+    t.integer "seven_days_retention",         default: 0
+    t.integer "fourteen_days_retention",      default: 0
+    t.integer "thirty_days_retention",        default: 0
+    t.integer "fb_connected_users",           default: 0
+    t.float   "one_days_retention_rate",      default: 0.0
+    t.float   "three_days_retention_rate",    default: 0.0
+    t.float   "seven_days_retention_rate",    default: 0.0
+    t.float   "fourteen_days_retention_rate", default: 0.0
+    t.float   "thirty_days_retention_rate",   default: 0.0
   end
 
   create_table "fact_iap", id: false, force: true do |t|
@@ -159,6 +164,7 @@ ActiveRecord::Schema.define(version: 20140311114926) do
     t.integer "dim_income_source_id",             null: false
     t.integer "dim_date_id",                      null: false
     t.integer "total_coins",          default: 0
+    t.integer "total_gems",           default: 0
   end
 
 end

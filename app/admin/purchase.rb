@@ -1,6 +1,13 @@
 ActiveAdmin.register Purchase do
   config.sort_order = "dim_date_id_desc"
   config.clear_action_items!
+  csv do
+    column :dim_date_id
+    column :item 
+    column :total_count 
+    column :total_coins
+    column :total_gems
+  end
   index do
     column :dim_date
     column :item
