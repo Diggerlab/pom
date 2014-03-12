@@ -23,28 +23,27 @@ set :current_path, "#{deploy_to}/current"
 set :releases_path, "#{deploy_to}/releases/"
 set :shared_path, "#{deploy_to}/shared"
 
-
 role :web, ENV['DEPLOY_WEB_SERVER']
 role :app, ENV['DEPLOY_APP_SERVER']
 
+set :unicorn_config, "#{current_path}/config/unicorn.rb"
+set :unicorn_pid, "#{current_path}/tmp/pids/unicorn.pid"
+
 namespace:deploy do
-    namespace:app do 
-      task:start do
-      end
-      
-      task:stop do
-      end
+  task :start_unicorn, :roles => :app do
+    run "cd #{current_path} && RAILS_ENV=#{rails_env} bundle exec unicorn_rails -c #{unicorn_config} -D"
+  end
 
-      # before "deploy:finalize_update" do 
-      #   run "cp #{shared_path}/config/database.yml #{release_path}/config/"
-      # end
+  task :stop_unicorn, :roles => :app do
+    run "if [ -f #{unicorn_pid} ]; then kill -QUIT `cat #{unicorn_pid}`; fi"
+  end
 
-      after "deploy:restart", :roles => :app do
-        #add any tasks in here that you want to run after the project is deployed
-        run "rm -rf #{release_path}.git"
-        run "chmod -R 755 #{current_path}"
-        run "touch #{File.join(current_path,'tmp','restart.txt')}"
-      end
-    end
+  task :restart_unicorn, :roles => :app do
+    run "if [ -f #{unicorn_pid} ]; then kill -s USR2 `cat #{unicorn_pid}`; fi"
+  end
+
+  namespace:app do 
+    after "deploy:restart", "deploy:restart_unicorn"
+  end
 
 end
