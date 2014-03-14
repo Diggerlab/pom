@@ -15,3 +15,11 @@
 // For example, to change the default status-tag color:
 //
 //   .status_tag { background: #6090DB; }
+#filters_sidebar_section {
+  li#q_dim_date_id_eq_input {
+    ol > li label {
+      width: inherit;
+      input { margin-right: 5px; }
+    }
+  }
+}
