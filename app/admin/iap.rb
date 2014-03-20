@@ -6,6 +6,9 @@ ActiveAdmin.register Iap do
     column :product
     column :count
   end
+  scope :all
+  scope :today
+  scope :yesterday
   index do
     column :dim_date
     column :product

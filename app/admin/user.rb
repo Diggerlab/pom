@@ -6,6 +6,9 @@ ActiveAdmin.register User do
     column :today_users 
     column :today_logins 
   end
+  scope :all
+  scope :today
+  scope :yesterday
   index do
     column :dim_date
     column :today_users

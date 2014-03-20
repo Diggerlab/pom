@@ -8,6 +8,11 @@ ActiveAdmin.register Purchase do
     column :total_coins
     column :total_gems
   end
+  scope :all
+  scope :today
+  scope :yesterday
+  scope :coins_only
+  scope :gems_only
   index do
     column :dim_date
     column :item
