@@ -3,8 +3,8 @@ ActiveAdmin.register Iap do
   config.clear_action_items!
   csv do
     column :dim_date_id
-    column ('product_name') {|p| p.product }
-    column ('product_id') {|p| p.product_id }
+    column ('Product Name') {|p| p.product }
+    column ('Product Id') {|p| p.product_id }
     column :count
   end
   scope :all
@@ -12,8 +12,8 @@ ActiveAdmin.register Iap do
   scope :yesterday
   index do
     column :dim_date
-    column 'product_name', :product
-    column 'product_id', :product_id
+    column 'Product Id', :product_id
+    column 'Product Name', :product
     column :count
   end
 
