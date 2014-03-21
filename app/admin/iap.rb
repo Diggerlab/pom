@@ -4,6 +4,7 @@ ActiveAdmin.register Iap do
   csv do
     column :dim_date_id
     column :product
+    column :product_id
     column :count
   end
   scope :all
@@ -12,6 +13,7 @@ ActiveAdmin.register Iap do
   index do
     column :dim_date
     column :product
+    column :product_id
     column :count
   end
 
