@@ -21,7 +21,7 @@ ActiveAdmin.register Purchase do
     column :total_gems
   end
 
-  filter :dim_date
+  filter :dim_date_id, :as => :numeric, :label => 'Time'
   filter :dim_game
   filter :item
   filter :total_gems

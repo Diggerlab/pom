@@ -21,8 +21,7 @@ ActiveAdmin.register Income do
     column :total_coins
     column :total_gems
   end
-
-  filter :dim_date
+  filter :dim_date_id, :as => :numeric, :label => 'Time'
   filter :dim_game
   filter :dim_income_source
   filter :total_gems

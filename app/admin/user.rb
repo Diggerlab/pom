@@ -15,6 +15,6 @@ ActiveAdmin.register User do
     column :today_logins
   end
 
-  filter :dim_date
+  filter :dim_date_id, :as => :numeric, :label => 'Time'
   filter :dim_game
 end
